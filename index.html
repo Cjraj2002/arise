@@ -109,27 +109,28 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+        
         @media (max-width: 600px) {
-        .login-wrapper {
-            width: 90%; /* Make the login box take up more width */
-            padding: 20px; /* Reduce padding for smaller screens */
-        }
+            .login-wrapper {
+                width: 90%; /* Make the login box take up more width */
+                padding: 20px; /* Reduce padding for smaller screens */
+            }
 
-        h2 {
-            font-size: 1.5rem; /* Adjust font size for the heading */
-        }
+            h2 {
+                font-size: 1.5rem; /* Adjust font size for the heading */
+            }
 
-        input {
-            font-size: 0.9rem; /* Slightly smaller font size for inputs */
-        }
+            input {
+                font-size: 0.9rem; /* Slightly smaller font size for inputs */
+            }
 
-        button {
-            font-size: 1rem; /* Adjust button font size */
-        }
+            button {
+                font-size: 1rem; /* Adjust button font size */
+            }
 
-        .extra-links a {
-            font-size: 0.8rem; /* Smaller font size for extra links */
-        }
+            .extra-links a {
+                font-size: 0.8rem; /* Smaller font size for extra links */
+            }
         }
 
         input {
@@ -224,19 +225,27 @@
         <h2>Happy Birthday Little Princess!!!</h2>
         <input type="text" id="username" placeholder="Sweet Name">
         <input type="password" id="password" placeholder="Date Of Birth"><br><br>
-        <button onclick="login()">Surpise</button>
-        <div class="extra-links">
-        </div>
+        <button onclick="login()">Surprise</button>
+        <div class="extra-links"></div>
     </div>
+
+    <audio id="birthday-music" loop>
+        <source src="ThaayeThaayeVS.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
         function login() {
-            // Get the username and password values
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
             if (username === "Arise" && password === "Arise") {
-                window.location.href = "birthday.html"; 
+                document.getElementById('birthday-music').play();
+                setTimeout(() => {
+                    window.location.href = "birthday.html"; 
+                }, 2000);
+            } else {
+                alert("Incorrect username or password! Please try again.");
             }
         }
     </script>
